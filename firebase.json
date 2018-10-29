@@ -7,8 +7,11 @@
     "indexes": "firestore.indexes.json"
   },
   "functions": {
+    "ref": {
+      "hello": "*"
+    },
     "predeploy": [
-      "npm --prefix \"$RESOURCE_DIR\" run lint"
+      "npm --prefix \"RESOURCE_DIR\""
     ]
   },
   "hosting": {
