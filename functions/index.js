@@ -26,28 +26,25 @@ console.log(chalk.hex('#F50064')
 
 function askWhatComponentsToScaffold() {
   const questions = [
-    // {
-    //   type: 'list',
-    //   name: 'starterAppOrComponent',
-    //   message: 'Do you want to scaffold a starter app or a component?',
-    //   choices: ['Starter app', 'Component']
-    // },
     {
-      type: 'checkbox',
-      name: 'componentsToScaffold',
-      message: 'What components do you want to scaffold?',
+      type: 'list',
+      name: 'framework',
+      message: 'What javascript framework are you using?',
+      choices: ['React']
+    },
+    {
+      type: 'list',
+      name: 'componentToScaffold',
+      message: 'What component do you want to scaffold?',
       choices: ['Button']
     }
   ];
 
   inquirer.prompt(questions).then(answers => {
-    var componentsToScaffold = answers.componentsToScaffold;
+    var framework = answers.framework.toLowerCase();
+    var componentToScaffold = answers.componentToScaffold;
 
-    if(componentsToScaffold) {
-      for (var i = 0; i < componentsToScaffold.length; i++) {
-        request('https://raw.githubusercontent.com/chrishcode/flo/master/functions/components/react' + componentsToScaffold[i] + '.js').pipe(fs.createWriteStream(componentsToScaffold[i] + '.js'));
-      }
-    }
+    request('https://raw.githubusercontent.com/chrishcode/flo/master/functions/components/' + framework + '/' + componentToScaffold + '.js').pipe(fs.createWriteStream(componentToScaffold + '.js'));
   });
 }
 
