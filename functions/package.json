@@ -1,7 +1,7 @@
 {
   "name": "chrishflo",
   "description": "Hi I'm flo, a javascript scaffolding tool!",
-  "version": "0.1.6",
+  "version": "0.1.10",
   "scripts": {
     "lint": "eslint .",
     "serve": "firebase serve --only functions",
@@ -19,11 +19,13 @@
     "fs": "0.0.1-security",
     "chalk": "2.4.1",
     "figlet": "1.2.1",
-    "inquirer": "6.2.0"
+    "inquirer": "6.2.0",
+    "nodegit": "0.23.0"
   },
   "devDependencies": {
     "eslint": "^4.12.0",
     "eslint-plugin-promise": "^3.6.0",
+    "nodegit": "^0.23.0",
     "request": "^2.88.0"
   },
   "private": false,
